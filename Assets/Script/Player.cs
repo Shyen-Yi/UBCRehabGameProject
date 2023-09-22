@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
 
         // Apply the new position to the object
         transform.position = newPosition;
+
     }
 
 }

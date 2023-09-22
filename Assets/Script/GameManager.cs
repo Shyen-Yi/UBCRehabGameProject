@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public float spawnRate = 2.0f; // Adjust the spawn rate as needed
     private bool gameStarted = false;
+    public float meteoroidSpeed = 5.0f;
 
     void Start()
     {
@@ -42,7 +43,9 @@ public class GameManager : MonoBehaviour
         spawnPos.x = Random.Range(-maxX, maxX);
         spawnPos.y = Random.Range(-maxY, maxY);
 
-        Instantiate(meteoroidPrefab, spawnPos, Quaternion.identity);
+        GameObject meteoroid = Instantiate(meteoroidPrefab, spawnPos, Quaternion.identity);
+        Meteoroid meteoroidScript = meteoroid.GetComponent<Meteoroid>();
+        meteoroidScript.speed = meteoroidSpeed;
     }
 
     // You can use this method to stop spawning meteoroids
